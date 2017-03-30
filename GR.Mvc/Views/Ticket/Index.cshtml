@@ -1,0 +1,40 @@
+﻿@using GR.Mvc.ViewModel
+@model TicketViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Ticket's</h2>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Price</th>
+                <th>Has Discount?</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model.Tickets != null)
+                {
+                    foreach (var t in Model.Tickets)
+                    {
+                        <tr>
+                            <td>@t.EventName</td>
+                            <td>@t.Price</td>
+                            <td>@(t.Discount > 0)</td>
+                            <td>
+                                <a href="~/Ticket/Delete?id=@(t.Id.ToString())">Delete</a> |
+                                <a href="~/Ticket/Edit?id=@(t.Id.ToString())">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>

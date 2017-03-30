@@ -1,0 +1,18 @@
+﻿@using GR.Mvc.ViewModel
+@model TicketViewModel
+
+@{
+    ViewBag.Title = "Edit Ticket";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Edit Ticket</title>
+</head>
+<body>
+    @await Html.PartialAsync("_AddOrUpdate", Model)
+</body>
+</html>
